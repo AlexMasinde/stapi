@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import PageNavigation from "./components/PageNavigation";
+import ResultsPerPage from "./components/ResultsPerPage";
+import SearchSpaceCrafts from "./components/SearchSpaceCrafts";
+import SpaceCraftList from "./components/SpaceCraftList";
+import { SpacecraftsProvider } from "./contexts/spacecraftsContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SpacecraftsProvider>
+      <div className="w-[fit-content] mx-auto my-8 text-primary-dark">
+        <h1 className="font-bold">Spacecraft from STAPI API</h1>
+      </div>
+      <SearchSpaceCrafts />
+      <div className="flex w-[1200px] mx-auto mb-4 justify-between">
+        <PageNavigation />
+        <ResultsPerPage />
+      </div>
+      <SpaceCraftList />
+    </SpacecraftsProvider>
   );
 }
 
